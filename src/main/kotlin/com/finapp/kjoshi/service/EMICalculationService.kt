@@ -33,7 +33,7 @@ class EMICalculationService{
                 remainingPrincipal = 0
             }
 
-            logger.info("Remaining P: $remainingPrincipal")
+            logger.debug("Remaining P: $remainingPrincipal")
         }
         return emiList
     }
