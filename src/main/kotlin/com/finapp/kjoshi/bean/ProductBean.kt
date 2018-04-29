@@ -8,8 +8,13 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "Product")
-data class ProductBean(@Id
-                                @Column(name="id")
-                                var id:Number,
-                                @Column
-                                var name:String): Serializable
+class ProductBean: Serializable
+{
+    @Id
+    @Column(name="id")
+    var id = 0
+
+    @Column
+    var name=""
+}
+
