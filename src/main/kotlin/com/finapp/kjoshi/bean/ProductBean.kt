@@ -11,6 +11,7 @@ class ProductBean
 {
 
     @Id
+    @Column(name="id")
     lateinit var id:Number
 
     @Column
