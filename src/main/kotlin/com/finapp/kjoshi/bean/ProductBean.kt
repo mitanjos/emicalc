@@ -12,4 +12,4 @@ data class ProductBean(@Id
                                 @Column(name="id")
                                 var id:Number,
                                 @Column
-                                var name:String)
+                                var name:String): Serializable

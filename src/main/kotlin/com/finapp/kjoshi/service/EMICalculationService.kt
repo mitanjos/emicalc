@@ -21,15 +21,16 @@ class EMICalculationService{
     fun generateAmmortizationSchedule(p:Int,r:Double,emi:Double):List<EMIDetails>{
         var emiList:MutableList<EMIDetails> = ArrayList()
         var remainingPrincipal = p
+        var calculatedEmi = emi
         while(remainingPrincipal>0){
             val interestPart = remainingPrincipal*r/1200
-            if(emi<remainingPrincipal+interestPart){
+            if(calculatedEmi<remainingPrincipal+interestPart){
                 val principalPart = emi.toInt() - interestPart.toInt()
-                emiList.add(EMIDetails(emi.toInt(),principalPart,interestPart.toInt()))
+                emiList.add(EMIDetails(calculatedEmi.toInt(),principalPart,interestPart.toInt()))
                 remainingPrincipal = (remainingPrincipal - principalPart).toInt()
             }else{
-                val emi = remainingPrincipal+interestPart
-                emiList.add(EMIDetails(emi.toInt(),remainingPrincipal,interestPart.toInt()))
+                calculatedEmi = remainingPrincipal+interestPart
+                emiList.add(EMIDetails(calculatedEmi.toInt(),remainingPrincipal,interestPart.toInt()))
                 remainingPrincipal = 0
             }
 
