@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/v1/api/product")
+@RequestMapping("/api/v1/product")
 class ProductController{
 
     private val logger = LoggerFactory.getLogger(ProductController::class.java)
