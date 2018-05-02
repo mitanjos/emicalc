@@ -1,7 +1,6 @@
 package com.finapp.kjoshi.controller
 
 import com.finapp.kjoshi.bean.NAVStgBean
-import com.finapp.kjoshi.repository.NAVStgRepo
 import com.finapp.kjoshi.service.DataLoadingService
 import com.finapp.kjoshi.service.DataProcessingService
 import com.finapp.kjoshi.service.NavStgService
