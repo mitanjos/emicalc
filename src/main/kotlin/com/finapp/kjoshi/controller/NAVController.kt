@@ -1,5 +1,6 @@
 package com.finapp.kjoshi.controller
 
+import com.finapp.kjoshi.bean.NAVStgBean
 import com.finapp.kjoshi.repository.NAVStgRepo
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,5 +26,10 @@ class NAVController{
     @RequestMapping("/cnt")
     fun getCountOfRecords(): Long {
         return repo.count()
+    }
+
+    @RequestMapping("/first")
+    fun getFirstRecord(): NAVStgBean? {
+        return repo.getOne(1)
     }
 }
