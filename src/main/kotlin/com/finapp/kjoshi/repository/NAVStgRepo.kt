@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface NAVStgRepo:JpaRepository<NAVStgBean,Int>{
-    fun findByAmfiId(@Param("amfiId")amfiId:String):List<NAVStgRepo>
+    fun findByAmfiId(@Param("amfiId")amfiId:String):List<NAVStgBean>
 }
