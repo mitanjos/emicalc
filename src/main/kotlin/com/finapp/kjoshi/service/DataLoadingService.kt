@@ -53,7 +53,6 @@ class DataLoadingService{
                 logger.trace(retString)
             }
             lastStr = x
-
         }
         return returnArrayList
     }

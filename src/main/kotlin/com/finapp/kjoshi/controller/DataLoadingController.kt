@@ -1,8 +1,10 @@
 package com.finapp.kjoshi.controller
 
 import com.finapp.kjoshi.bean.NAVStgBean
+import com.finapp.kjoshi.repository.NAVStgRepo
 import com.finapp.kjoshi.service.DataLoadingService
 import com.finapp.kjoshi.service.DataProcessingService
+import com.finapp.kjoshi.service.NavStgService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
@@ -18,6 +20,9 @@ class DataLoadingController{
     @Autowired
     lateinit var dataProcessingService: DataProcessingService
 
+    @Autowired
+    lateinit var navStgService: NavStgService
+
     private val logger = LoggerFactory.getLogger(DataLoadingController::class.java)
 
     @RequestMapping("/load")
@@ -25,7 +30,9 @@ class DataLoadingController{
         logger.info("Loaing data from remote url")
         val rawData = loadingService.loadDataFromUrl()
         logger.info("Data loaded from remote url")
-        return dataProcessingService.createStagingData(rawData)
+        val stgData = dataProcessingService.createStagingData(rawData)
+        navStgService.loadData(stgData)
+        return stgData
     }
 
 }

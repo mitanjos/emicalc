@@ -3,11 +3,12 @@ package com.finapp.kjoshi.bean
 import javax.persistence.*
 
 @Entity
+@Table(name = "nav_stg")
 class NAVStgBean{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id:Number=0
+    var id:Int=0
 
     @Column(name = "fund_type")
     var fundType=""
