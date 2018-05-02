@@ -16,7 +16,7 @@ class NAVController{
     @Autowired
     lateinit var repo:NAVStgRepo
 
-    @RequestMapping("/{amfiId}")
+    @RequestMapping("/fund/{amfiId}")
     fun getNAVDataByAmfiId(@PathVariable("amfiId")amfiId:String): NAVStgRepo {
         logger.info("Getting data for amfiId:{}",amfiId)
         return repo.findByAmfiId(amfiId)

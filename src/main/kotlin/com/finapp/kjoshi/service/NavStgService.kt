@@ -15,8 +15,10 @@ open class NavStgService{
     @Autowired
     lateinit var stgRepo: NAVStgRepo
 
-    fun loadData(navStgList:List<NAVStgBean>){
+
+    fun loadData(navStgList:List<NAVStgBean>): MutableList<NAVStgBean>? {
         logger.info("Loading data in tables")
-        stgRepo.saveAll(navStgList)
+        val retVal = stgRepo.saveAll(navStgList)
+        return retVal
     }
 }

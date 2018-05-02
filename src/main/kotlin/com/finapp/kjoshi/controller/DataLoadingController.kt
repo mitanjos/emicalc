@@ -26,13 +26,12 @@ class DataLoadingController{
     private val logger = LoggerFactory.getLogger(DataLoadingController::class.java)
 
     @RequestMapping("/load")
-    fun loadData(): MutableList<NAVStgBean> {
+    fun loadData(): MutableList<NAVStgBean>? {
         logger.info("Loaing data from remote url")
         val rawData = loadingService.loadDataFromUrl()
         logger.info("Data loaded from remote url")
         val stgData = dataProcessingService.createStagingData(rawData)
-        navStgService.loadData(stgData)
-        return stgData
+        return navStgService.loadData(stgData)
     }
 
 }
