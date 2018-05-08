@@ -1,6 +1,7 @@
 package com.finapp.kjoshi.controller
 
 import com.finapp.kjoshi.bean.FundDetailsBean
+import com.finapp.kjoshi.bean.KeyValPair
 import com.finapp.kjoshi.repository.FundDetailsRepo
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -34,5 +35,11 @@ class FundDetailsController{
     fun getFundNames(): List<String> {
         logger.info("Getting distinct fund names")
         return fundDetailsRepo.findFundNames()
+    }
+
+    @RequestMapping("/search/fundName/{fundName}")
+    fun getFundNameByFundName(@PathVariable("fundName")fundName:String): List<FundDetailsBean> {
+        logger.info("Finding funds with name containing:{}",fundName)
+        return fundDetailsRepo.findByFundNameIgnoreCaseContaining(fundName)
     }
 }
