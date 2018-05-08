@@ -23,4 +23,16 @@ class FundDetailsController{
         logger.info("Getting fund details for {}",amfiId)
         return fundDetailsRepo.findByAmfiId(amfiId)
     }
+
+    @RequestMapping("/fundTypes")
+    fun getFundTypes(): List<String> {
+        logger.info("Getting distinct fund types")
+        return fundDetailsRepo.findFundTypes()
+    }
+
+    @RequestMapping("/fundNames")
+    fun getFundNames(): List<String> {
+        logger.info("Getting distinct fund names")
+        return fundDetailsRepo.findFundNames()
+    }
 }
