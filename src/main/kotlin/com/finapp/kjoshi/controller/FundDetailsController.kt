@@ -37,6 +37,12 @@ class FundDetailsController{
         return fundDetailsRepo.findFundNames()
     }
 
+    @RequestMapping("/fundHouses")
+    fun getFundHouses(): List<String> {
+        logger.info("Getting distinct fund names")
+        return fundDetailsRepo.findFundHouses()
+    }
+
     @RequestMapping("/search/fundName/{fundName}")
     fun getFundNameByFundName(@PathVariable("fundName")fundName:String): List<FundDetailsBean> {
         logger.info("Finding funds with name containing:{}",fundName)

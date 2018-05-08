@@ -14,5 +14,8 @@ interface FundDetailsRepo : JpaRepository<FundDetailsBean,Int>{
     @Query("select distinct fund_name from fund_details_mst",nativeQuery = true)
     fun findFundNames():List<String>
 
+    @Query("select distinct fund_house from fund_details_mst",nativeQuery = true)
+    fun findFundHouses():List<String>
+
     fun findByFundNameIgnoreCaseContaining(fundName:String):List<FundDetailsBean>
 }
