@@ -1,7 +1,6 @@
 package com.finapp.kjoshi.repository
 
 import com.finapp.kjoshi.bean.FundDetailsBean
-import com.finapp.kjoshi.bean.KeyValPair
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 
