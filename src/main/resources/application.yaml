@@ -6,7 +6,7 @@ spring:
     hibernate:
       ddl-auto: create
   datasource:
-    url: jdbc:mysql://13.126.83.72:3306/navdata
+    url: jdbc:mysql://localhost:3306/navdata
     username: globaluser
     password: lionking1
   jpa:
