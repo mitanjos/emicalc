@@ -1,4 +1,4 @@
-package com.finapp.kjoshi
+package com.finapp.kjoshi.config
 
 import org.slf4j.LoggerFactory
 import org.springframework.boot.web.client.RestTemplateBuilder
