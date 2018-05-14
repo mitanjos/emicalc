@@ -50,4 +50,14 @@ class MasterConroller{
         logger.info("Got {} for profileId:{}",portfolioDetails,profileId)
         return retList
     }
+
+    @RequestMapping("/amfiId/{amfiId}")
+    fun getFundInfoForAMFIId(@PathVariable("amfiId")amfiId:String): FundCompleteDetailsDTO {
+        logger.info("Getting all information for amfiId:{}",amfiId)
+        val fundDetails = fundDetailRepo.findByAmfiId(amfiId)
+        logger.info("Got fund Details:{}",fundDetails)
+        val fundNav = fundNAVRepo.findByAmfiIdOrderByNavDateDesc(amfiId)
+        logger.info("Got fund Latest NAV:{}",fundNav)
+        return FundCompleteDetailsDTO(fundDetails[0],fundNav[0])
+    }
 }
