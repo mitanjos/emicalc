@@ -9,7 +9,7 @@ class CustomerBean{
 
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id=0
 
     @Column(name="profile_id")
