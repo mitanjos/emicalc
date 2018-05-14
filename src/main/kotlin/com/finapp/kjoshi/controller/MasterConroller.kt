@@ -35,7 +35,9 @@ class MasterConroller{
                 val amfiId = portfoio.amfiId
                 logger.info("Getting data for AMFI ID:{}",amfiId)
                 val fundDetails = fundDetailRepo.findByAmfiId(amfiId)
+                logger.info("fund Details:{}",fundDetails)
                 val fundNav = fundNAVRepo.getNAVForFunds(amfiId)
+                logger.info("fund nav:{}",fundNav)
                 if(fundDetails!=null && !fundDetails.isEmpty() && fundNav != null && !fundNav.isEmpty())
                 {
                     val retDto = FundCompleteDetailsDTO(fundDetails[0],fundNav[0])
