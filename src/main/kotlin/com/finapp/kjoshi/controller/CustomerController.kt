@@ -16,13 +16,13 @@ class CustomerController{
     @Autowired
     lateinit var customerRepo:CustomerRepo
 
-    @RequestMapping("/",method = [RequestMethod.POST])
+    //@RequestMapping("/",method = [RequestMethod.POST])
     fun createCustomer(@RequestBody customerBean:CustomerBean): CustomerBean? {
         logger.info("Creating customer entry")
         return customerRepo.save(customerBean)
     }
 
-    @RequestMapping("/{profileId}",method = [RequestMethod.GET])
+    //@RequestMapping("/{profileId}",method = [RequestMethod.GET])
     fun getCustomerDetails(@PathVariable("profileId")profileId:String): CustomerBean {
         logger.info("Getting information about customer:{}",profileId)
         return customerRepo.findByProfileId(profileId)

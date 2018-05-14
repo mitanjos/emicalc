@@ -17,4 +17,6 @@ interface FundDetailsRepo : JpaRepository<FundDetailsBean,Int>{
     fun findFundHouses():List<String>
 
     fun findByFundNameIgnoreCaseContaining(fundName:String):List<FundDetailsBean>
+
+    fun findByAmfiIdIn(amfiIdList:List<String>):List<FundDetailsBean>
 }
