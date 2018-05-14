@@ -58,7 +58,7 @@ class MasterConroller{
         logger.info("Getting all information for amfiId:{}",amfiId)
         val fundDetails = fundDetailRepo.findByAmfiIdIn(amfiId)
         logger.info("Got fund Details:{}",fundDetails)
-        if(fundDetails.isEmpty()){
+        if(!fundDetails.isEmpty()){
             fundDetails.stream().forEach { fundDetail ->
                 logger.info("Getting information for amfiId:{}",fundDetail.amfiId)
                 val navData = fundNAVRepo.findByAmfiIdOrderByNavDateDesc(fundDetail.amfiId)
