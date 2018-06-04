@@ -43,6 +43,9 @@ class FundDetailsController{
     @RequestMapping("/search/fundName/{fundName}")
     fun getFundNameByFundName(@PathVariable("fundName")fundName:String): List<FundDetailsBean> {
         logger.info("Finding funds with name containing:{}",fundName)
+        if(fundName == null || fundName.trim().length<3 || fundName.indexOf("%")>=0){
+            return emptyList()
+        }
         return fundDetailsRepo.findByFundNameIgnoreCaseContaining(fundName)
     }
 }
