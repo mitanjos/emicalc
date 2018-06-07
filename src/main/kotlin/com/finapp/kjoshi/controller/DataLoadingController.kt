@@ -36,7 +36,7 @@ class DataLoadingController{
         return navStgService.loadData(stgData)
     }
 
-    @Scheduled(cron = "0 30 15 * *  MON-FRI")
+    @Scheduled(cron = "0 45 15 * *  MON-FRI")
     fun scheduledTrigger(){
         logger.info("Starting data loading process at: {}", LocalDateTime.now())
         val retData =loadData()
