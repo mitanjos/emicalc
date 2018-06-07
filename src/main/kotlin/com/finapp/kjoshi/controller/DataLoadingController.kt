@@ -6,8 +6,11 @@ import com.finapp.kjoshi.service.DataProcessingService
 import com.finapp.kjoshi.service.NavStgService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/api/v1/data")
@@ -31,6 +34,13 @@ class DataLoadingController{
         logger.info("Data loaded from remote url")
         val stgData = dataProcessingService.createStagingData(rawData)
         return navStgService.loadData(stgData)
+    }
+
+    @Scheduled(cron = "0 30 15 * *  MON-FRI")
+    fun scheduledTrigger(){
+        logger.info("Starting data loading process at: {}", LocalDateTime.now())
+        val retData =loadData()
+        logger.info("Loaded {} records for {}",retData?.size, LocalDate.now())
     }
 
 }
