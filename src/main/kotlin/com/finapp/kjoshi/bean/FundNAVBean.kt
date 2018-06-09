@@ -31,11 +31,11 @@ class FundNAVBean:Comparable<FundNAVBean>{
     var navDate=LocalDate.now()
 
     @Column(name="nav_value")
-    var navValue=0.0
+    var navValue:Double=0.0
 
     @Column(name="price_repurchase")
-    var repurchasePrice=0.0
+    var repurchasePrice:Double=0.0
 
     @Column(name="price_sell")
-    var sellPrice=0.0
+    var sellPrice:Double=0.0
 }
