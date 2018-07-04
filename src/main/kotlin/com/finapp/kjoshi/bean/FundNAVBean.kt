@@ -32,10 +32,5 @@ class FundNAVBean:Comparable<FundNAVBean>{
 
     @Column(name="nav_value")
     var navValue:Double=0.0
-
-    @Column(name="price_repurchase")
-    var repurchasePrice:Double=0.0
-
-    @Column(name="price_sell")
-    var sellPrice:Double=0.0
+    
 }
