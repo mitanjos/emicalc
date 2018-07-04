@@ -11,8 +11,14 @@ open class RestClientConfig{
 
     private val logger = LoggerFactory.getLogger(RestClientConfig::class.java)
 
-    @Bean
+    @Bean("restTemplate1")
     open fun createRestTecmplate(restTemplateBuilder: RestTemplateBuilder): RestTemplate? {
+        logger.info("Building RestTemplate")
+        return restTemplateBuilder.build()
+    }
+
+    @Bean("restTemplate2")
+    open fun createAnotherRestTecmplate(restTemplateBuilder: RestTemplateBuilder): RestTemplate? {
         logger.info("Building RestTemplate")
         return restTemplateBuilder.build()
     }

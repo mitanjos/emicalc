@@ -12,13 +12,13 @@ import java.time.LocalDateTime
 class DataLoadingService{
 
     @Autowired
-    lateinit var restTemplate: RestTemplate
+    lateinit var restTemplate: List<RestTemplate>
 
     private val logger = LoggerFactory.getLogger(DataLoadingService::class.java)
 
 
     fun loadDataFromUrl(): List<String> {
-        val response = restTemplate.getForEntity("https://www.amfiindia.com/spages/NAVOpen.txt?t=29042018074901",String::class.java)
+        val response = restTemplate[0].getForEntity("https://www.amfiindia.com/spages/NAVOpen.txt?t=29042018074901",String::class.java)
         if(response.statusCode == HttpStatus.OK)
         {
             logger.info("Got the data from response")
