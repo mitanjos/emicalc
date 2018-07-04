@@ -31,12 +31,6 @@ class NAVStgBean{
     @Column(name = "nav")
     var nav=""
 
-    @Column(name = "price_repurchase")
-    var priceRepurchase=""
-
-    @Column(name = "price_sell")
-    var priceSell=""
-
     @Column(name = "nav_date")
     var navDate=""
 }
