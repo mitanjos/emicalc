@@ -33,6 +33,7 @@ class DataLoadingController{
         val rawData = loadingService.loadDataFromUrl()
         logger.info("Data loaded from remote url")
         val stgData = dataProcessingService.createStagingData(rawData)
+        logger.info("Got {} no of rows of data",stgData.size)
         return navStgService.loadData(stgData)
     }
 
