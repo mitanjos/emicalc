@@ -33,7 +33,7 @@ class DataLoadingService{
         var lastStr = ""
         var fundHouseName= ""
         var fundType = ""
-        logger.info("Response \n {}",str)
+        logger.trace("Response \n {}",str)
         logger.info("No of lines: {}",str.split('\n').size.toString())
         var returnArrayList:MutableList<String> = ArrayList()
         str.split('\n').stream().filter{x -> !x.trim().isEmpty() }.skip(1).forEach{
@@ -53,7 +53,7 @@ class DataLoadingService{
                 }
                 val retString = "${fundType.trim()};${fundHouseName.trim()};${x.trim()}"
                 returnArrayList.add(retString)
-                logger.info(retString)
+                logger.trace(retString)
             }
             lastStr = x
         }

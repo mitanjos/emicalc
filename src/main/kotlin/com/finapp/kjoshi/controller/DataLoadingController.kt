@@ -31,7 +31,7 @@ class DataLoadingController{
     fun loadData(): MutableList<NAVStgBean>? {
         logger.info("Loaing data from remote url")
         val rawData = loadingService.loadDataFromUrl()
-        logger.info("Data loaded from remote url")
+        logger.info("Data loaded from remote url with {} rows",rawData.size)
         val stgData = dataProcessingService.createStagingData(rawData)
         logger.info("Got {} no of rows of data",stgData.size)
         return navStgService.loadData(stgData)

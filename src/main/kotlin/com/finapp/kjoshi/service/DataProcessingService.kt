@@ -22,6 +22,7 @@ class DataProcessingService{
             stgBean.fundName = rowData[5]
             stgBean.nav = rowData[6]
             stgBean.navDate = rowData[7]
+            returnList.add(stgBean)
         }
         logger.info("Returning {} results",returnList.size)
         return returnList
