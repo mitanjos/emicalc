@@ -16,8 +16,9 @@ open class NavStgService{
 
 
     fun loadData(navStgList:List<NAVStgBean>): MutableList<NAVStgBean>? {
-        logger.info("Loading data in tables")
+        logger.info("Loading data in staging table")
         val retVal = stgRepo.saveAll(navStgList)
+        logger.info("Data loaded in staging table")
         return retVal
     }
 }

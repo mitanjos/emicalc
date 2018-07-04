@@ -23,6 +23,7 @@ class DataProcessingService{
             stgBean.nav = rowData[6]
             stgBean.navDate = rowData[7]
         }
+        logger.info("Returning {} results",returnList.size)
         return returnList
     }
 }
