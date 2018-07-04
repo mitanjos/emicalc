@@ -33,7 +33,8 @@ class DataLoadingService{
         var lastStr = ""
         var fundHouseName= ""
         var fundType = ""
-        logger.info(str.split('\n').size.toString())
+        logger.info("Response \n {}",str)
+        logger.info("No of lines: {}",str.split('\n').size.toString())
         var returnArrayList:MutableList<String> = ArrayList()
         str.split('\n').stream().filter{x -> !x.trim().isEmpty() }.skip(1).forEach{
             x -> if(lastStr.isEmpty())
