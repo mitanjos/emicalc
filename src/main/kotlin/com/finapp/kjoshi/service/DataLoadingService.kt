@@ -52,10 +52,11 @@ class DataLoadingService{
                 }
                 val retString = "${fundType.trim()};${fundHouseName.trim()};${x.trim()}"
                 returnArrayList.add(retString)
-                logger.trace(retString)
+                logger.info(retString)
             }
             lastStr = x
         }
+        logger.info("Returning {} records",returnArrayList.size)
         return returnArrayList
     }
 
